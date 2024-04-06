@@ -116,6 +116,50 @@ const Cart = () => {
     setListProduct(_listProduct);
     dispatch(removeCartData({ product_id: product._id }));
   };
+  const handleBuyProduct = async () => {
+    try {
+      let body = {
+        first_name: "test",
+        last_name: "test",
+        list_product_id: [],
+        amount: [],
+      };
+      selectedProduct.forEach((p) => {
+        body["list_product_id"].push(p._id);
+        body["amount"].push(p.amount);
+      });
+
+      const resp = await buyProduct(body);
+
+      if (resp.data.code === 1000) {
+        setSelectedProduct(initialData.selectedProduct);
+        setListProduct(initialData.listProduct);
+        dispatch(clearCartData());
+
+        notification.success({
+          description: (
+            <p style={{ color: "green" }}>
+              {Strings.getString("Cart.buyBtn.buyProductSuccess")}
+            </p>
+          ),
+          placement: "topRight",
+        });
+      }
+    } catch (error) {
+      console.log("error handleBuyProduct: ", error);
+      notification.error({
+        message: (
+          <p
+            style={{ color: "red" }}
+          >{`error code: ${error.response.data.code}`}</p>
+        ),
+        description: (
+          <p style={{ color: "red" }}>{error.response.data.description}</p>
+        ),
+        placement: "topRight",
+      });
+    }
+  };
 
   const renderEmptyCart = () => {
     return (
@@ -342,51 +386,6 @@ const Cart = () => {
     }
 
     return null;
-  };
-
-  const handleBuyProduct = async () => {
-    try {
-      let body = {
-        first_name: "test",
-        last_name: "test",
-        list_product_id: [],
-        amount: [],
-      };
-      selectedProduct.forEach((p) => {
-        body["list_product_id"].push(p._id);
-        body["amount"].push(p.amount);
-      });
-
-      const resp = await buyProduct(body);
-
-      if (resp.data.code === 1000) {
-        setSelectedProduct(initialData.selectedProduct);
-        setListProduct(initialData.listProduct);
-        dispatch(clearCartData());
-
-        notification.success({
-          description: (
-            <p style={{ color: "green" }}>
-              {Strings.getString("Cart.buyBtn.buyProductSuccess")}
-            </p>
-          ),
-          placement: "topRight",
-        });
-      }
-    } catch (error) {
-      console.log("error handleBuyProduct: ", error);
-      notification.error({
-        message: (
-          <p
-            style={{ color: "red" }}
-          >{`error code: ${error.response.data.code}`}</p>
-        ),
-        description: (
-          <p style={{ color: "red" }}>{error.response.data.description}</p>
-        ),
-        placement: "topRight",
-      });
-    }
   };
 
   return isLoading === true ? (

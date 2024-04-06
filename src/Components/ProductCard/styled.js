@@ -13,8 +13,8 @@ export default {
     flex-flow: row wrap;
     gap: 20px;
     justify-content: center;
-    overflow: scroll;
-    height: 80vh;
+    // overflow: scroll;
+    // height: 80vh;
   `,
   InfoContainer: styled.div`
     display: flex;

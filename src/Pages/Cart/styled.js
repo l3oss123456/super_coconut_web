@@ -52,6 +52,10 @@ export default {
     border: ${(props) => `2px solid ${props.theme.colors.lightGray}`};
     border-radius: 5px;
     padding: 20px;
+
+    p {
+      color: black;
+    }
   `,
   BuyProductSection: styled.div`
     width: 100%;
