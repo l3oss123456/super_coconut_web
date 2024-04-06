@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import * as R from "ramda";
 import { Select, Button, Badge } from "antd";
 import {
   MenuOutlined,
@@ -152,26 +153,30 @@ const Layout = ({ children }) => {
 
           <content-side-nav-container>
             {listMenu.map((menu, index) => {
-              return (
-                <Link
-                  to={menu.link}
-                  key={index}
-                  onClick={() => {
-                    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                    setDisplayHamburgerMenu(false);
-                  }}
-                >
-                  <Styles.Menu hamburger>
-                    {menu.name}
-                    <div
-                      style={{
-                        border: `1px solid lightgray`,
-                        marginTop: 5,
-                      }}
-                    />
-                  </Styles.Menu>
-                </Link>
-              );
+              if (!R.isEmpty(menu.link) && !R.isEmpty(menu.name)) {
+                return (
+                  <Link
+                    to={menu.link}
+                    key={index}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                      setDisplayHamburgerMenu(false);
+                    }}
+                  >
+                    <Styles.Menu hamburger>
+                      {menu.name}
+                      <div
+                        style={{
+                          border: `1px solid lightgray`,
+                          marginTop: 5,
+                        }}
+                      />
+                    </Styles.Menu>
+                  </Link>
+                );
+              }
+
+              return null;
             })}
           </content-side-nav-container>
 

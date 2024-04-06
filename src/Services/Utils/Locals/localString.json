@@ -54,6 +54,14 @@
   "Cart.shippingFee": { "en": "Shipping Fee", "th": "ค่าจัดส่ง" },
   "Cart.freeText": { "en": "Fee", "th": "ฟรี" },
   "Cart.totalCost": { "en": "total", "th": "รวม" },
+  "Cart.cancelBtn.titleText": {
+    "en": "Confirm Remove Product",
+    "th": "ยืนยันยกเลิกสินค้านี้ "
+  },
+  "Cart.cancelBtn.contentText": {
+    "en": "Are you sure perform remove product ?",
+    "th": "ต้องการยกเลิกสินค้านี้ ?"
+  },
   "Cart.buyBtn": { "en": "Purchase Products", "th": "สั่งซื้อสินค้า" },
   "Cart.buyBtn.titleTextModal": {
     "en": "Confirm Purchasing",

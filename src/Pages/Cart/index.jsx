@@ -220,11 +220,9 @@ const Cart = () => {
                       onClick={() => {
                         setModal({
                           open: true,
-                          title: Strings.getString(
-                            "Cart.buyBtn.titleTextModal"
-                          ),
+                          title: Strings.getString("Cart.cancelBtn.titleText"),
                           content: Strings.getString(
-                            "Cart.buyBtn.contentTextModal"
+                            "Cart.cancelBtn.contentText"
                           ),
                           handleOk: () => {
                             handleDeleteSelectedProduct({
