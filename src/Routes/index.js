@@ -6,6 +6,7 @@ import Home from "../Pages/Home";
 import AboutUs from "../Pages/Aboutus";
 import Contact from "../Pages/Contact";
 import ScrollToAnimation from "../Pages/ScrollToAnimation";
+import Cart from "../Pages/Cart";
 
 const Routes = () => {
   return (
@@ -24,6 +25,12 @@ const Routes = () => {
           exact
           path="/"
           component={Home}
+          // allowRole={["แอดมิน", "ผู้แก้ไข", "ผู้อ่าน"]}
+        />
+        <GuardRoutes
+          exact
+          path="/cart"
+          component={Cart}
           // allowRole={["แอดมิน", "ผู้แก้ไข", "ผู้อ่าน"]}
         />
         <GuardRoutes exact path="/about-us" component={AboutUs} />

@@ -1,8 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Select, Button } from "antd";
-import { MenuOutlined, CloseOutlined, LogoutOutlined } from "@ant-design/icons";
+import { Select, Button, Badge } from "antd";
+import {
+  MenuOutlined,
+  CloseOutlined,
+  LogoutOutlined,
+  ShoppingCartOutlined,
+} from "@ant-design/icons";
 import Images from "../../Components/Images";
 import { Strings } from "../../Services/Utils/Locals";
 import { editLanguage } from "../../Services/Redux/Actions/language";
@@ -19,6 +24,7 @@ const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const language = useSelector((state) => state.language);
   const theme = useSelector((state) => state.theme);
+  const cart = useSelector((state) => state.cart);
 
   const { windowWidth } = helper.useWindowSize();
 
@@ -111,11 +117,14 @@ const Layout = ({ children }) => {
         <Styles.HamburgerSection
           onClick={() => setDisplayHamburgerMenu(!displayHamburgerMenu)}
         >
+          {shoppingCart({ marginLeft: 0 })}
+
           <MenuOutlined
             style={{
               cursor: `pointer`,
               fontSize: `1.2rem`,
               color: colors.white,
+              marginLeft: 30,
             }}
           />
         </Styles.HamburgerSection>
@@ -175,6 +184,18 @@ const Layout = ({ children }) => {
       </>
     );
   };
+  const renderShoppingCart = () => {
+    return (
+      <Styles.BtnSection
+        onClick={() => {
+          window.location.href = "/cart";
+        }}
+      >
+        {shoppingCart()}
+      </Styles.BtnSection>
+    );
+  };
+
   const renderLanguageDropdown = () => {
     return <Styles.BtnSection>{languageDropdown()}</Styles.BtnSection>;
   };
@@ -185,6 +206,26 @@ const Layout = ({ children }) => {
     return <Styles.BtnSection>{logoutBtn()}</Styles.BtnSection>;
   };
 
+  const shoppingCart = (style = {}) => {
+    const cartArray = cart.split(" ").filter((e) => e !== "");
+
+    return (
+      <Badge count={cartArray.length} overflowCount={99}>
+        <ShoppingCartOutlined
+          onClick={() => {
+            window.location.href = "/cart";
+          }}
+          style={{
+            fontSize: fontSize.title,
+            // color: theme === "light" ? colors.black : colors.white,
+            color: colors.white,
+            cursor: "pointer",
+            ...style,
+          }}
+        />
+      </Badge>
+    );
+  };
   const languageDropdown = (style = {}) => {
     return (
       <Select
@@ -243,9 +284,11 @@ const Layout = ({ children }) => {
     <>
       <Styles.MenuContainer>
         {renderLogo()}
+
         <div style={{ display: `flex`, alignItems: "center" }}>
-          {renderMenu()}
+          {/* {renderMenu()} */}
           {renderHamburgerMenu()}
+          {renderShoppingCart()}
           {renderLanguageDropdown()}
           {renderThemeDropdown()}
           {/* {renderLogoutBtn()} */}

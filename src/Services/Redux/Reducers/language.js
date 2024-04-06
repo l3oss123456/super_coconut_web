@@ -7,8 +7,8 @@ import { getLocalStorage } from "../../Utils/storage";
 
 const loginInfoReducer = (
   //   state = process.env.REACT_APP_LANGUAGE_CODE,
-  // state = getLocalStorage(`language`) ? getLocalStorage(`language`) : `en`,
-  state = process.env.REACT_APP_LANGUAGE || getLocalStorage(`language`) || `en`,
+  state = getLocalStorage(`language`) ? getLocalStorage(`language`) : `en`,
+  // state = process.env.REACT_APP_LANGUAGE || getLocalStorage(`language`) || `en`,
   action
 ) => {
   switch (action.type) {

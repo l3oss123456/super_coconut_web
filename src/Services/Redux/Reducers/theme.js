@@ -2,8 +2,8 @@ import { GET_THEME, SET_THEME, THEME_ERROR } from "../Actions/theme";
 import { getLocalStorage } from "../../Utils/storage";
 
 const themeReducer = (
-  // state = getLocalStorage(`theme`) ? getLocalStorage(`theme`) : `light`,
-  state = process.env.REACT_APP_THEME || getLocalStorage(`theme`) || `light`,
+  state = getLocalStorage(`theme`) ? getLocalStorage(`theme`) : `light`,
+  // state = process.env.REACT_APP_THEME || getLocalStorage(`theme`) || `light`,
   action
 ) => {
   switch (action.type) {

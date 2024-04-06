@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Images from "../Images";
 // import { colors } from "../../cores/theme";
-import Styles from "./styles";
+import Styles from "./styled";
 import "./Loading.modules.css";
 
 const Loading = ({ loading = false }) => {

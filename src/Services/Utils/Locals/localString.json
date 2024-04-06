@@ -11,6 +11,65 @@
     "laos": "ງວດປະຈຳວັນທີ່ {date}",
     "hanoi": "ho"
   },
+  "homePage.select.productType1": {
+    "en": "food",
+    "th": "อาหาร"
+  },
+  "homePage.select.productType2": {
+    "en": "used",
+    "th": "ของใช้"
+  },
+  "productCard.stock": {
+    "en": "Stock",
+    "th": "จำนวนสินค้า"
+  },
+  "productCard.available": {
+    "en": "available for sale",
+    "th": "พร้อมจำหน่าย"
+  },
+
+  "productCard.notAvailable": {
+    "en": "not available for sale",
+    "th": "ไม่พร้อมจำหน่าย"
+  },
+  "Input.InputSearch.placeholder": {
+    "en": "Search...",
+    "th": "ค้นหา..."
+  },
+  "Pagination.itemsPerPage": {
+    "en": "/ pages",
+    "th": "/ หน้า"
+  },
+  "Pagination.jumpTo": {
+    "en": "Go to",
+    "th": "ไปหน้า"
+  },
+  "Pagination.page": {
+    "en": "Pages",
+    "th": "หน้า"
+  },
+  "Cart.id": { "en": "ID# ", "th": "รหัส# " },
+  "Cart.totalPayment": { "en": "Total Payment", "th": "ค่าใช้จ่ายทั้งหมด" },
+  "Cart.totalAmount": { "en": "{number} list", "th": "{number} รายการ" },
+  "Cart.shippingFee": { "en": "Shipping Fee", "th": "ค่าจัดส่ง" },
+  "Cart.freeText": { "en": "Fee", "th": "ฟรี" },
+  "Cart.totalCost": { "en": "total", "th": "รวม" },
+  "Cart.buyBtn": { "en": "Purchase Products", "th": "สั่งซื้อสินค้า" },
+  "Cart.buyBtn.titleTextModal": {
+    "en": "Confirm Purchasing",
+    "th": "ยืนยันการซื้อสินค้า"
+  },
+  "Cart.buyBtn.contentTextModal": {
+    "en": "Are you sure perform perchasing ?",
+    "th": "คุณค้องการซื้อสินค้า ?"
+  },
+  "Cart.buyBtn.buyProductSuccess": {
+    "en": "Purchasing Product Successful",
+    "th": "สั่งซื้อสินค้าสำเร็จ"
+  },
+
+  "Modal.cancelBtn": { "en": "Cancel", "th": "ยกเลิก" },
+  "Modal.okBtn": { "en": "OK", "th": "ตกลง" },
 
   "randomComponent.resultText": {
     "en": "number {number}",
